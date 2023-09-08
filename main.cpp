@@ -3,6 +3,12 @@
 
 #include "GameApplication.h"
 
+#define USE_QAPPLICATION
+
+#if defined(USE_QAPPLICATION)
+void test_timer();
+#endif
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -19,7 +25,9 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
 
-#if (0)
+#if defined(USE_QAPPLICATION)
+    test_timer();
+
     return app.exec();
 #else
     return game.exec(&app);

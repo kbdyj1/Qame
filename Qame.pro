@@ -15,7 +15,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         GameApplication.cpp \
-        main.cpp
+        main.cpp \
+        test_timer.cpp
 
 RESOURCES += qml.qrc
 
