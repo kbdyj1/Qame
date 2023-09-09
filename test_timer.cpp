@@ -1,4 +1,5 @@
 #include <QElapsedTimer>
+#include <QDeadlineTimer>
 #include <QDebug>
 #include <unistd.h>
 
@@ -24,9 +25,29 @@ void test()
 
 } //_1 --------------------------------------------------------------
 
+namespace _2 {
+
+void test()
+{
+    QDeadlineTimer deadline{500};
+
+    qDebug() << "deadline: " << deadline.deadline();
+
+    while (!deadline.hasExpired()) {
+        qDebug() << "remaining: " << deadline.remainingTime() << "ms";
+        usleep(1000*100);
+    }
+}
+
+} //_2 --------------------------------------------------------------
+
 } //===========================================================================
 
 void test_timer()
 {
+#if (0) //done
     _1::test();
+#endif
+
+    _2::test();
 }
