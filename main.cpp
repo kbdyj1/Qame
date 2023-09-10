@@ -3,7 +3,7 @@
 
 #include "GameApplication.h"
 
-#define USE_QAPPLICATION
+//#define USE_QAPPLICATION
 
 #if defined(USE_QAPPLICATION)
 void test_timer();
@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
 
     return app.exec();
 #else
-    return game.exec(&app);
+    auto* rootContext = engine.rootContext();
+    return game.exec(&app, rootContext);
 #endif
 }

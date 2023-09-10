@@ -2,6 +2,7 @@
 #define GAMEAPPLICATION_H
 
 #include <QObject>
+#include <QQmlContext>
 
 class QCoreApplication;
 class GameApplicationPrivate;
@@ -14,7 +15,7 @@ public:
     GameApplication(QObject* parent = nullptr);
     virtual ~GameApplication();
 
-    int exec(QCoreApplication* eventHandler);
+    int exec(QCoreApplication* eventHandler, QQmlContext* context);
 
 Q_SIGNALS:
     void gameStarted();

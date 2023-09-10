@@ -19,5 +19,9 @@ Window {
             color: "white"
             anchors.centerIn: parent
         }
+        Text {
+            text: "fps: " + fps
+            color: "white"
+        }
     }
 }
