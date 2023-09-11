@@ -19,9 +19,19 @@ Window {
             color: "white"
             anchors.centerIn: parent
         }
-        Text {
-            text: "fps: " + fps
-            color: "white"
+        Column {
+            Text {
+                text: "fps: " + fps
+                color: "white"
+            }
+            Text {
+                text: "human: " + game.HumanCount
+                color: "yellow"
+            }
+            Text {
+                text: "zombi: " + game.ZombiCount
+                color: "red"
+            }
         }
     }
 }

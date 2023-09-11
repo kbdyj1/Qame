@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 
 #include "GameApplication.h"
+#include "GameContext.h"
 
 //#define USE_QAPPLICATION
 
@@ -31,6 +32,8 @@ int main(int argc, char *argv[])
     return app.exec();
 #else
     auto* rootContext = engine.rootContext();
+    rootContext->setContextProperty("game", new GameContext(&app));
+
     return game.exec(&app, rootContext);
 #endif
 }
